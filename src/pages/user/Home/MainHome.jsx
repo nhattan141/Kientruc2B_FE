@@ -1,9 +1,9 @@
-import ProducsVideo from '../Home/ProductsVideo/ProducsVideo';
+import FeaturedProjects from '../Home/FeaturedProjects/FeaturedProjects';
 
 const MainHome = () => {
     return (
         <>
-            <ProducsVideo />
+            <FeaturedProjects />
         </>
     );
 };
