@@ -8,17 +8,13 @@ import PauseIcon from '@mui/icons-material/Pause';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
-import Skeleton from '@mui/material/Skeleton';
-
 const Header = () => {
     const [isPlay, setPlay] = React.useState(true);
     const [isUnmute, setUnmute] = React.useState(true);
     const [videoheader, setVideo] = React.useState();
-    const [isLoading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
         setVideo(document.querySelector("#video"));
-        setTimeout(() => { setLoading(false) }, 3000);
     }, []);
 
     const handlePauseVideo = () => {
@@ -68,7 +64,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="video-container">
-                    {
+                    {/* {
                         isLoading
                             ? <Skeleton sx={{ bgcolor: 'grey.900' }} variant="rectangular" animation="wave" width='100%' height='calc(100vh - 62px)' />
                             : <video id="video" src={headervideo}
@@ -76,7 +72,12 @@ const Header = () => {
                                 loop
                                 muted
                             ></video>
-                    }
+                    } */}
+                    <video id="video" src={headervideo}
+                        autoPlay
+                        loop
+                        muted
+                    ></video>
                     <div className='video-controllers'>
                         <button onClick={handlePauseVideo}>
                             {isPlay ? <PauseIcon /> : <PlayArrowIcon />}

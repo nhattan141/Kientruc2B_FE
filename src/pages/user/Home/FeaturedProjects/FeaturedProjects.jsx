@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Typography, Grid, Skeleton } from '@mui/material';
+import { Typography, Grid, Box } from '@mui/material';
 
 import './FeaturedProjects.scss';
 
@@ -17,90 +17,106 @@ import project9 from '../../../../assets/imgs/project9.jpg';
 const FeaturedProjects = () => {
     const projects = [
         {
-            img: project1,
+            proPic: project1,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
-            img: project2,
+            proPic: project2,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
-            img: project3,
+            proPic: project3,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
-            img: project4,
+            proPic: project4,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
-            img: project5,
+            proPic: project5,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
-            img: project6,
+            proPic: project6,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
-            img: project7,
+            proPic: project7,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
-            img: project8,
+            proPic: project8,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
-            img: project9,
+            proPic: project9,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
     ];
-
-    const [isLoading, setLoading] = React.useState(true);
-
-    React.useEffect(() => {
-        setTimeout(() => { setLoading(false) }, 3000);
-    }, []);
 
     return (
         <div className="featured-projects">
             <Typography variant="h3" sx={{ textTransform: 'uppercase' }}>
                 Dự án nổi bật
             </Typography>
-            <Grid container spacing={2} sx={{ margin: 0, width: '100%' }}>
-                {projects.map((project, index) => {
-                    return (
-                        <Grid item xs={12} md={4} key={index} sx={{ paddingLeft: '8px' }}>
-                            <div className='project-card'>
-                                <div className='project-img'>
-                                    {isLoading
-                                        ? <Skeleton variant="rectangular" animation="wave" width='100%' height='100%' />
-                                        : <img src={project.img} alt='project-image' />
-                                    }
+            <Box sx={{ flexGrow: 1 }}>
+                <Grid container spacing={2} sx={{
+                    // marginLeft: '-16px',
+                    marginTop: 0,
+                }}>
+                    {projects.map((project, index) => {
+                        return (
+                            <Grid
+                                item
+                                xs={12}
+                                md={4}
+                                key={index}
+                                sx={{
+                                    cursor: 'pointer',
+                                    "&:hover>.project-card:before": {
+                                        transform: 'scale(1)'
+                                    },
+                                    "&:hover>.project-card:after": {
+                                        transform: 'scale(1)'
+                                    },
+                                    "&:hover>.project-card>.project-img": {
+                                        opacity: '.4'
+                                    },
+                                    "&:hover>.project-card>.project-body": {
+                                        opacity: '1'
+                                    },
+                                }}
+                            >
+                                <div className='project-card'>
+                                    <div className='project-img'>
+                                        <img src={project.proPic} alt='project-pic' />
+                                    </div>
+                                    <div className='project-body'>
+                                        <Typography variant="h4" sx={{ textTransform: 'uppercase' }}>
+                                            {project.title}
+                                        </Typography>
+                                        <Typography variant="h6" >
+                                            {project.city}
+                                        </Typography>
+                                    </div>
                                 </div>
-                                <div className='project-body'>
-                                    <Typography variant="h4" sx={{ textTransform: 'uppercase' }}>
-                                        {project.title}
-                                    </Typography>
-                                    <Typography variant="h6" >
-                                        {project.city}
-                                    </Typography>
-                                </div>
-                            </div>
-                        </Grid>
-                    )
-                })
-                }
-            </Grid>
+                            </Grid>
+                        )
+                    })
+                    }
+                </Grid>
+            </Box>
             <a href="/projects">Xem tất cả dự án</a>
-        </div>
+        </div >
     )
 };
 
