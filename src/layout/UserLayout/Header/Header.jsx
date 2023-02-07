@@ -1,12 +1,15 @@
 import * as React from 'react';
 import './Header.scss';
 
+import fullLogo from '../../../assets/imgs/full_logo.png';
+import logoA from '../../../assets/imgs/logoA.png';
 import headervideo from '../../../assets/videos/headervideo.mp4';
 
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import AddIcon from '@mui/icons-material/Add';
 
 const Header = () => {
     const [isPlay, setPlay] = React.useState(true);
@@ -42,11 +45,14 @@ const Header = () => {
             <div className="navbar">
                 <div className="header-container nav-container">
                     <div className="logo">
-                        <h1>2B+</h1>
+                        <img src={fullLogo} alt="logo" />
                     </div>
                     <div className="company-name">
-                        <h1>2B+</h1>
-                        <h2>Archi</h2>
+                        <h1>2b+</h1>
+                        <h2>archi</h2>
+                        <div className='logo-a'>
+                            <img src={logoA} alt="logo" />
+                        </div>
                     </div>
                     <div className="menu">
                         <input className="checkbox" type="checkbox" name="" id="" />
@@ -56,9 +62,24 @@ const Header = () => {
                             <span className="line line3"></span>
                         </div>
                         <div className="menu-items">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="projects">Dự án</a></li>
+                            <div className="sub-menu">
+                                <input className="dropdown-sub" type="checkbox" id="dropdown-sub" name="dropdown-sub" />
+                                <label className="for-dropdown-sub" for="dropdown-sub">
+                                    Dự án
+                                    <AddIcon />
+                                </label>
+                                <ul>
+                                    <li><a href="house">Nhà phố</a></li>
+                                    <li><a href="villa">Biệt thự</a></li>
+                                    <li><a href="shop">Văn phòng</a></li>
+                                    <li><a href="hotel">Khách sạn</a></li>
+                                </ul>
+                            </div>
+                            <li><a href="building">Xây dựng</a></li>
+                            <li><a href="apartment">Chung cư</a></li>
+                            <li><a href="restaurant">Nhà hàng</a></li>
                             <li><a href="about">Giới thiệu</a></li>
+                            <li><a href="phongthuy">Phong thủy</a></li>
                             <li><a href="contact">Liên hệ</a></li>
                         </div>
                     </div>

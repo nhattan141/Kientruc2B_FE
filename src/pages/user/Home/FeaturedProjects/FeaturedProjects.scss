@@ -1,3 +1,9 @@
+@font-face {
+    font-family: Montserrat;
+    src: url('../../../../assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+}
+
 .featured-projects {
     margin-top: 15px;
     padding: 10px;
@@ -5,27 +11,6 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-
-    // .MuiGrid-item {
-    //     padding-left: 8px;
-    //     padding-right: 8px;
-    //     cursor: pointer;
-
-    //     &:hover>.project-card:before {
-    //         transform: scale(1);
-    //     }
-
-    //     &:hover>.project-card:after {
-    //         transform: scale(1);
-    //     }
-
-    //     &:hover>.project-card>.project-img {
-    //         opacity: .4;
-    //     }
-
-    //     &:hover>.project-card>.project-body {
-    //         opacity: 1;
-    //     }
 
     .project-card {
         height: 235px;
@@ -88,8 +73,6 @@
         }
     }
 
-    // }
-
     a {
         margin-top: 15px;
         background-color: var(--white);
@@ -104,5 +87,13 @@
             background-color: var(--black);
             color: var(--white);
         }
+    }
+}
+
+@media only screen and (max-width:500px) {
+
+    /* For mobile phones: */
+    .logo {
+        display: none;
     }
 }

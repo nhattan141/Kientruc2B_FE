@@ -65,7 +65,12 @@ const FeaturedProjects = () => {
 
     return (
         <div className="featured-projects">
-            <Typography variant="h3" sx={{ textTransform: 'uppercase' }}>
+            <Typography variant="h2" sx={{
+                textTransform: 'uppercase',
+                fontFamily: 'Montserrat, sans-serif',
+                fontWeight: '200',
+                fontSize: '38px'
+            }}>
                 Dự án nổi bật
             </Typography>
             <Box sx={{ flexGrow: 1 }}>
@@ -101,7 +106,12 @@ const FeaturedProjects = () => {
                                         <img src={project.proPic} alt='project-pic' />
                                     </div>
                                     <div className='project-body'>
-                                        <Typography variant="h4" sx={{ textTransform: 'uppercase' }}>
+                                        <Typography variant="h4" sx={{
+                                            textTransform: 'uppercase',
+                                            fontFamily: 'Montserrat, sans-serif',
+                                            fontWeight: '600',
+                                            fontSize: '38px'
+                                        }}>
                                             {project.title}
                                         </Typography>
                                         <Typography variant="h6" >
