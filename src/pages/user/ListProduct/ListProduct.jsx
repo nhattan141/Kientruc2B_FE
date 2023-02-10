@@ -1,20 +1,24 @@
 import * as React from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-import { Typography, Grid, Box } from '@mui/material';
+import { Typography, Grid, Box, Stack } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-import './FeaturedProjects.scss';
+import './ListProduct.scss';
 
-import project1 from '../../../../assets/imgs/project1.jpg';
-import project2 from '../../../../assets/imgs/project2.jpg';
-import project3 from '../../../../assets/imgs/project3.jpg';
-import project4 from '../../../../assets/imgs/project4.jpg';
-import project5 from '../../../../assets/imgs/project5.jpg';
-import project6 from '../../../../assets/imgs/project6.jpg';
-import project7 from '../../../../assets/imgs/project7.jpg';
-import project8 from '../../../../assets/imgs/project8.jpg';
-import project9 from '../../../../assets/imgs/project9.jpg';
+import project1 from '../../../assets/imgs/project1.jpg';
+import project2 from '../../../assets/imgs/project2.jpg';
+import project3 from '../../../assets/imgs/project3.jpg';
+import project4 from '../../../assets/imgs/project4.jpg';
+import project5 from '../../../assets/imgs/project5.jpg';
+import project6 from '../../../assets/imgs/project6.jpg';
+import project7 from '../../../assets/imgs/project7.jpg';
+import project8 from '../../../assets/imgs/project8.jpg';
+import project9 from '../../../assets/imgs/project9.jpg';
 
-const FeaturedProjects = () => {
+const ListProduct = () => {
+    let { cate_id } = useParams();
+
     const projects = [
         {
             proPic: project1,
@@ -64,15 +68,44 @@ const FeaturedProjects = () => {
     ];
 
     return (
-        <div className="featured-projects">
-            <Typography variant="h2" sx={{
-                textTransform: 'uppercase',
-                fontFamily: 'Montserrat, sans-serif',
-                fontWeight: '200',
-                fontSize: '38px'
-            }}>
-                Dự án nổi bật
-            </Typography>
+        <div className="list-project">
+            <div className="list-title">
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={2} sx={{
+                        width: '100vw',
+                        height: '260px',
+                        padding: '80px',
+                        marginBottom: '20px'
+                    }}>
+                        <Grid item md={12}>
+                            <Typography variant="h2" sx={{
+                                textTransform: 'uppercase',
+                                fontFamily: 'Montserrat, sans-serif',
+                                fontWeight: '200',
+                                fontSize: '36px'
+                            }}>
+                                {cate_id}
+                            </Typography>
+                        </Grid>
+                        <Grid item md={12}>
+                            <Stack
+                                direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                spacing={2}
+                            >
+                                <Link to={`/`}>
+                                    Trang chu
+                                </Link>
+                                <ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
+                                <Link to={`category/${cate_id}`}>
+                                    {cate_id}
+                                </Link>
+                            </Stack>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </div>
             <Box sx={{ flexGrow: 1, padding: '20px' }}>
                 <Grid container spacing={2} sx={{
                     // marginLeft: '-16px',
@@ -132,9 +165,8 @@ const FeaturedProjects = () => {
                     }
                 </Grid>
             </Box>
-            <a href="/projects">Xem tất cả dự án</a>
         </div >
     )
 };
 
-export default FeaturedProjects;
+export default ListProduct;

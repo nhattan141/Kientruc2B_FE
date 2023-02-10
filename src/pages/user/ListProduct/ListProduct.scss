@@ -1,16 +1,23 @@
-@font-face {
-    font-family: Montserrat;
-    src: url('../../../../assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-    font-style: normal;
-}
-
-.featured-projects {
-    margin-top: 15px;
-    padding: 10px;
+.list-project {
+    margin-bottom: 15px;
+    padding: 0 10px 10px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+
+    .list-title {
+        background: url(../../../assets//imgs/background_footer.jpg);
+        background-position: center center;
+        background-attachment: fixed;
+
+        a {
+            font-family: Montserrat, sans-serif;
+            font-size: 16px;
+            text-decoration: none;
+            color: var(--black);
+        }
+    }
 
     .project-card {
         height: 235px;
@@ -70,22 +77,6 @@
             text-align: center;
             opacity: 0;
             transition: all 250ms ease-in-out;
-        }
-    }
-
-    a {
-        margin-top: 15px;
-        background-color: var(--white);
-        color: var(--black);
-        border: 1px solid;
-        padding: 15px 23px;
-        text-align: center;
-        text-decoration: none;
-        transition: all 0.5s ease-out;
-
-        &:hover {
-            background-color: var(--black);
-            color: var(--white);
         }
     }
 }
