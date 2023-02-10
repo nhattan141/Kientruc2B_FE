@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import usePagination from '../../../HOC/usePagination';
 
-import { Typography, Grid, Box, Stack } from '@mui/material';
+import { Typography, Grid, Box, Stack, Pagination } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import './ListProduct.scss';
@@ -51,6 +52,36 @@ const ListProduct = () => {
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            proPic: project1,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project2,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project3,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project4,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project5,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project6,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
             proPic: project7,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
@@ -65,7 +96,60 @@ const ListProduct = () => {
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
+        {
+            proPic: project7,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project8,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project9,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project8,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project9,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project8,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project9,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
+        {
+            proPic: project8,
+            title: 'Fioretty Villa',
+            city: 'Phường 8, thành phố Đà Lạt',
+        },
     ];
+
+    // ==================== Pagination =================
+    let [page, setPage] = React.useState(1);
+    const itemsPerPage = 9;
+
+    const data = usePagination(projects, itemsPerPage);
+
+    let currentData = data.currentData();
+
+    const handleChangePage = (e, p) => {
+        setPage(p);
+        data.jumpPage(p);
+    };
 
     return (
         <div className="list-project">
@@ -75,13 +159,13 @@ const ListProduct = () => {
                         width: '100vw',
                         height: '260px',
                         padding: '80px',
-                        marginBottom: '20px'
+                        marginTop: 0
                     }}>
                         <Grid item md={12}>
                             <Typography variant="h2" sx={{
                                 textTransform: 'uppercase',
                                 fontFamily: 'Montserrat, sans-serif',
-                                fontWeight: '200',
+                                fontWeight: '600',
                                 fontSize: '36px'
                             }}>
                                 {cate_id}
@@ -111,7 +195,7 @@ const ListProduct = () => {
                     // marginLeft: '-16px',
                     marginTop: 0,
                 }}>
-                    {projects.map((project, index) => {
+                    {currentData.map((project, index) => {
                         return (
                             <Grid
                                 item
@@ -165,6 +249,7 @@ const ListProduct = () => {
                     }
                 </Grid>
             </Box>
+            <Pagination count={data.maxPage} page={page} onChange={handleChangePage} boundaryCount={2} />
         </div >
     )
 };
