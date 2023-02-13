@@ -154,12 +154,13 @@ const ListProduct = () => {
     return (
         <div className="list-project">
             <div className="list-title">
-                <Box sx={{ flexGrow: 1 }}>
+                <Box sx={{ flexGrow: 1, background: 'rgba(25,25,25,.5)' }}>
                     <Grid container spacing={2} sx={{
                         width: '100vw',
                         height: '260px',
                         padding: '80px',
-                        marginTop: 0
+                        marginTop: 0,
+                        color: 'white'
                     }}>
                         <Grid item md={12}>
                             <Typography variant="h2" sx={{
