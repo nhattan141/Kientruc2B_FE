@@ -81,7 +81,7 @@ const Footer = () => {
                                     fontSize: '18px',
                                     marginBottom: '30px'
                                 }}>
-                                    Giới thiệu về chúng rôi
+                                    Giới thiệu về chúng tôi
                                 </Typography>
                                 <div className="widget-content">
                                     <p>Chúng tôi với 08 năm kinh nghiệm trong lĩnh vực tư vấn - thiết kế - xây dựng.</p>

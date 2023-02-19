@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { Typography, Grid, Box } from '@mui/material';
 
+import ProjectCard from '../../../../layout/UserLayout/ProjectCard/ProjectCard';
+
 import './FeaturedProjects.scss';
 
 import project1 from '../../../../assets/imgs/project1.jpg';
@@ -17,46 +19,55 @@ import project9 from '../../../../assets/imgs/project9.jpg';
 const FeaturedProjects = () => {
     const projects = [
         {
+            id: 1,
             proPic: project1,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            id: 2,
             proPic: project2,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            id: 3,
             proPic: project3,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            id: 4,
             proPic: project4,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            id: 5,
             proPic: project5,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            id: 6,
             proPic: project6,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            id: 7,
             proPic: project7,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            id: 8,
             proPic: project8,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
         },
         {
+            id: 9,
             proPic: project9,
             title: 'Fioretty Villa',
             city: 'Phường 8, thành phố Đà Lạt',
@@ -80,59 +91,20 @@ const FeaturedProjects = () => {
                 }}>
                     {projects.map((project, index) => {
                         return (
-                            <Grid
-                                item
-                                xs={12}
-                                md={4}
-                                key={index}
-                                sx={{
-                                    cursor: 'pointer',
-                                    "&:hover>.project-card:before": {
-                                        width: '100px',
-                                        height: '50px',
-                                        borderTop: '2px solid #000',
-                                        borderLeft: '2px solid #000',
-                                    },
-                                    "&:hover>.project-card:after": {
-                                        width: '100px',
-                                        height: '50px',
-                                        borderBottom: '2px solid #000',
-                                        borderRight: '2px solid #000',
-                                    },
-                                    "&:hover>.project-card>.project-img": {
-                                        opacity: '.4'
-                                    },
-                                    "&:hover>.project-card>.project-body": {
-                                        opacity: '1',
-                                        transform: 'translate(-50%,0)'
-                                    },
-                                }}
-                            >
-                                <div className='project-card'>
-                                    <div className='project-img'>
-                                        <img src={project.proPic} alt='project-pic' />
-                                    </div>
-                                    <div className='project-body'>
-                                        <Typography variant="h4" sx={{
-                                            textTransform: 'uppercase',
-                                            fontFamily: 'Montserrat, sans-serif',
-                                            fontWeight: '600',
-                                            fontSize: '38px'
-                                        }}>
-                                            {project.title}
-                                        </Typography>
-                                        <Typography variant="h6" >
-                                            {project.city}
-                                        </Typography>
-                                    </div>
-                                </div>
+                            <Grid item xs={12} md={4} key={index} >
+                                <ProjectCard
+                                    id={project.id}
+                                    title={project.title}
+                                    image={project.proPic}
+                                    address={project.city}
+                                />
                             </Grid>
                         )
                     })
                     }
                 </Grid>
             </Box>
-            <a href="/projects">Xem tất cả dự án</a>
+            <a className="all_btn" href="/projects">Xem tất cả dự án</a>
         </div >
     )
 };

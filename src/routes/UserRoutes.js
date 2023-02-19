@@ -3,7 +3,8 @@ import { lazy } from "react";
 import UserLayout from "../layout/UserLayout";
 
 const MainHome = lazy(() => import('../pages/user/Home/MainHome'));
-const ListProduct = lazy(() => import('../pages/user/ListProduct/ListProduct'));
+const ListProject = lazy(() => import('../pages/user/ListProject/ListProject'));
+const Project = lazy(() => import('../pages/user/Project/Project'));
 
 const UserRoutes = {
     path: '/',
@@ -15,8 +16,12 @@ const UserRoutes = {
         },
         {
             path: 'category/:cate_id',
-            element: <ListProduct />
-        }
+            element: <ListProject />
+        },
+        {
+            path: 'project/:project_id',
+            element: <Project />
+        },
     ]
 };
 
