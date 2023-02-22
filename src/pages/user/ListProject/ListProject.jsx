@@ -176,8 +176,6 @@ const ListProject = () => {
         data.jumpPage(p);
     };
 
-    console.log(currentData);
-
     return (
         <div className="list-project">
             <TitlePage />

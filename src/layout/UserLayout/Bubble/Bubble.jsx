@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import './Bubble.scss';
 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -5,7 +7,22 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 const Bubble = () => {
+    const [bubble, setBubble] = React.useState();
+
+    React.useEffect(() => {
+        setBubble(document.querySelector(".bubble-container"));
+    }, [])
+
+    window.onscroll = () => {
+        if (window.scrollY > 300) {
+            bubble.classList.add("show")
+        } else {
+            bubble.classList.remove("show")
+        }
+    }
+
     const handleScrollToTop = () => {
+        document.querySelector("#checkboxBubble").click();
         window.scrollTo({
             top: 0,
             behavior: 'smooth'

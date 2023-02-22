@@ -13,10 +13,11 @@
  }
 
  .navbar {
-     background: rgba(255, 255, 255, 0.5);
-     box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+     background: transparent;
+     //  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
      width: 100%;
      position: relative;
+     z-index: 1;
 
      .header-container {
          width: 90%;
@@ -29,33 +30,33 @@
          align-items: center;
 
          .logo-a {
-             height: 100%;
-             width: 80px;
+             height: 60px;
+             width: 60px;
 
              img {
                  width: 100%;
                  height: 100%;
                  object-fit: cover;
+                 transform: scale(1.5);
              }
          }
 
          .logo {
              height: 80px;
-             width: 100px;
+             width: 115px;
              overflow: hidden;
 
              img {
                  width: 100%;
                  height: 100%;
                  object-fit: cover;
-                 transform: scale(2);
              }
          }
 
          .menu {
              height: 35px;
              width: 35px;
-             border: 1px solid var(--black);
+             border: 1.5px solid var(--black);
              position: relative;
 
              input[type="checkbox"] {
@@ -137,7 +138,7 @@
                  padding: 45px 25px;
                  top: -8px;
                  right: -8px;
-                 background-color: rgba(255, 255, 255, 0.7);
+                 background-color: rgba(255, 255, 255, 0.5);
                  width: 200px;
                  z-index: 4;
                  display: flex;
@@ -241,55 +242,5 @@
                  }
              }
          }
-     }
-
-     //  .video-container {
-     //      width: 100%;
-     //      height: calc(100vh - 70px);
-     //      position: relative;
-
-     //      video {
-     //          width: 100%;
-     //          height: 100%;
-     //          opacity: 0.7;
-     //          object-fit: cover;
-     //      }
-
-     //      .video-controllers {
-     //          position: absolute;
-     //          top: 60%;
-     //          padding: 20px;
-     //          left: 50%;
-     //          transform: translate(-50%);
-     //          width: 200px;
-     //          display: flex;
-     //          justify-content: space-between;
-
-     //          button {
-     //              border: none;
-     //              outline: none;
-     //              border-radius: 50%;
-     //              width: 70px;
-     //              height: 70px;
-     //              transition: all 250ms ease-in-out;
-     //              align-items: center;
-     //              background: var(--transparent1);
-     //              color: var(--grey);
-
-     //              &:hover {
-     //                  background: var(--white);
-     //                  box-shadow: 0 0 50px #ccc;
-     //                  color: #0e2431
-     //              }
-     //          }
-     //      }
-     //  }
- }
-
- @media only screen and (max-width:500px) {
-
-     /* For mobile phones: */
-     .logo {
-         display: none;
      }
  }

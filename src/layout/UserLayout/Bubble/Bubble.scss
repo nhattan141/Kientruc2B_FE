@@ -1,10 +1,11 @@
 .bubble-container {
     position: fixed;
-    bottom: 50px;
+    bottom: -200px;
     right: 30px;
     height: 50px;
     width: 50px;
-    z-index: 100;
+    z-index: -999;
+    transition: all 500ms ease-in-out;
 
     .bubble-content {
 
@@ -84,4 +85,9 @@
             }
         }
     }
+}
+
+.show {
+    bottom: 50px;
+    z-index: 100;
 }

@@ -38,18 +38,20 @@ const VideoHome = () => {
 
     return (
         <div className="video-container">
-            <video id="video" src={headervideo}
-                autoPlay
-                loop
-                muted
-            ></video>
-            <div className='video-controllers'>
-                <button onClick={handlePauseVideo}>
-                    {isPlay ? <PauseIcon /> : <PlayArrowIcon />}
-                </button>
-                <button onClick={handleMuteVideo}>
-                    {isUnmute ? <VolumeOffIcon /> : <VolumeUpIcon />}
-                </button>
+            <div className="video-content">
+                <video id="video" src={headervideo}
+                    autoPlay
+                    loop
+                    muted
+                ></video>
+                <div className='video-controllers'>
+                    <button onClick={handlePauseVideo}>
+                        {isPlay ? <PauseIcon /> : <PlayArrowIcon />}
+                    </button>
+                    <button onClick={handleMuteVideo}>
+                        {isUnmute ? <VolumeOffIcon /> : <VolumeUpIcon />}
+                    </button>
+                </div>
             </div>
         </div>
     );

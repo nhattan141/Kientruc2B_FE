@@ -2,6 +2,8 @@ import * as React from 'react';
 import './Header.scss';
 import { Link } from 'react-router-dom';
 
+import { Avatar } from '@mui/material';
+
 import fullLogo from '../../../assets/imgs/full_logo.png';
 import logoA from '../../../assets/imgs/logoA.png';
 
@@ -14,11 +16,13 @@ const Header = () => {
                 <div className="header-container nav-container">
                     <div className='logo-a'>
                         <Link to={`/`}>
-                            <img src={logoA} alt="logo" />
+                            <Avatar sx={{ width: '100%', height: '100%' }} variant="square" alt="logo" src={logoA} />
                         </Link>
                     </div>
                     <div className="logo">
-                        <img src={fullLogo} alt="logo" />
+                        <Link to={`/`}>
+                            <Avatar sx={{ width: '100%', height: '100%' }} variant="square" alt="logo" src={fullLogo} />
+                        </Link>
                     </div>
                     <div className="menu">
                         <input className="checkbox" type="checkbox" name="" id="menu" />
